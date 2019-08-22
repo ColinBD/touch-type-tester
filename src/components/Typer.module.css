@@ -1,0 +1,7 @@
+.myColumn {
+  border: dashed 2px red;
+}
+
+.hidden {
+  visibility: hidden;
+}

@@ -9,7 +9,11 @@ import Exercise from "./components/Exercise";
 class App extends Component {
   state = {
     stage: 1,
-    trainingPhase: false
+    trainingPhase: false,
+    settings: {
+      selectedTextType: "",
+      quantity: ""
+    }
   };
   render() {
     return (
@@ -21,15 +25,25 @@ class App extends Component {
   }
   checkStage() {
     if (this.state.stage === 2) {
-      return <Typer />;
+      return <Typer settings={this.state.settings} />;
     } else if (this.state.stage === 3) {
       return <Stats />;
     } else if (this.state.stage === 4) {
       return <Exercise />;
     } else {
-      return <Instructions />;
+      return <Instructions onSettings={this.handleSettings} />;
     }
   }
+
+  handleSettings = (txt, quant) => {
+    this.setState({
+      settings: {
+        selectedTextType: txt,
+        quantity: quant
+      },
+      stage: 2
+    });
+  };
 }
 
 export default App;
