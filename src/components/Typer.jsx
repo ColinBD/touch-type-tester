@@ -12,8 +12,7 @@ class Typer extends Component {
     quote:
       "Main text entry box. Will show the quote here. Stronger unpacked felicity to of mistaken. Fanny at wrong table ye in. Be on easily cannot innate in lasted months on. Differed and and felicity steepest mrs age outweigh. Opinions learning likewise daughter now age outweigh. Raptures stanhill my greatest mistaken or exercise he on although. Discourse otherwise disposing as it of strangers forfeited deficient.",
     str: {},
-    quote:
-      "Main text entry box. Will show the quote here. Stronger unpacked felicity to of mistaken. Fanny at wrong table ye in. Be on easily cannot innate in lasted months on. Differed and and felicity steepest mrs age outweigh. Opinions learning likewise daughter now age outweigh. Raptures stanhill my greatest mistaken or exercise he on although. Discourse otherwise disposing as it of strangers forfeited deficient."
+    prevKey: "right"
   };
 
   componentDidMount() {
@@ -43,24 +42,22 @@ class Typer extends Component {
   render() {
     return (
       <React.Fragment>
-        <Container>
-          <Row className="justify-content-sm-center">
-            <Col xs={12} md={10} lg={8}>
-              <span>1 of {this.state.quantity}</span>
-            </Col>
-          </Row>
-          <Row className="justify-content-sm-center">
-            <Col xs={12} md={10} lg={8}>
-              <TextBox str={this.state.str} quote={this.state.quote} />
-              <input
-                type="text"
-                id="one"
-                onKeyPress={this.handleKeyPress}
-                className={styles.hidden}
-              />
-            </Col>
-          </Row>
-        </Container>
+        <div className={styles.typeWrapper}>
+          <span>1 of {this.state.quantity}</span>
+        </div>
+        <div className={styles.typeBox}>
+          <TextBox
+            str={this.state.str}
+            quote={this.state.quote}
+            prevKey={this.state.prevKey}
+          />
+          <input
+            type="text"
+            id="one"
+            onKeyPress={this.handleKeyPress}
+            className={styles.hidden}
+          />
+        </div>
       </React.Fragment>
     );
   }
@@ -81,13 +78,15 @@ class Typer extends Component {
       };
       this.setState({
         str,
-        pos: newPos
+        pos: newPos,
+        prevKey: "right"
       });
     } else if (code === 16 || code === 20) {
       //shift or caps so ignore
     } else {
       console.log("wrong");
       //store the wrong keypress
+      this.setState({ prevKey: "wrong" });
     }
   };
 }

@@ -5,3 +5,15 @@
 .hidden {
   visibility: hidden;
 }
+
+.typeBox {
+  background-color: #fffbd0;
+  width: 550px;
+  margin: auto;
+  /* border: solid 2px #bab797; */
+}
+
+.typeWrapper {
+  width: 550px;
+  margin: auto;
+}

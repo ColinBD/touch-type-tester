@@ -5,6 +5,14 @@ import Instructions from "./components/Instructions";
 import Typer from "./components/Typer";
 import Stats from "./components/Stats";
 import Exercise from "./components/Exercise";
+import Fan from "./images/Fan1.png";
+
+{
+  /* <link
+  href="https://fonts.googleapis.com/css?family=Muli&display=swap"
+  rel="stylesheet"
+/>; */
+}
 
 class App extends Component {
   state = {
@@ -19,6 +27,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header />
+        <img src={Fan} alt="fan" width="30%" />
         {this.checkStage()}
       </React.Fragment>
     );
