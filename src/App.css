@@ -31,11 +31,33 @@ body {
   color: #61dafb;
 }
 
+.fanWrapper {
+}
+.fan {
+  left: 8%;
+  clear: both;
+  display: block;
+  float: left;
+  position: absolute;
+  top: 150px;
+  width: 20%;
+  animation: rotation 4s infinite linear;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }
