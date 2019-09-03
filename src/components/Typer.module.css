@@ -16,4 +16,5 @@
 .typeWrapper {
   width: 550px;
   margin: auto;
+  z-index: 5;
 }

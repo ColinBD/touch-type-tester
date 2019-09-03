@@ -1,5 +1,6 @@
 body {
-  background-image: url("./images/Typewriter7.png");
+  background-color: green;
+  background-image: url("./images/TypewriterBlue.png");
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -31,8 +32,6 @@ body {
   color: #61dafb;
 }
 
-.fanWrapper {
-}
 .fan {
   left: 8%;
   clear: both;
@@ -42,6 +41,7 @@ body {
   top: 150px;
   width: 20%;
   animation: rotation 4s infinite linear;
+  z-index: -1;
 }
 
 @keyframes App-logo-spin {
@@ -59,5 +59,209 @@ body {
   }
   to {
     transform: rotate(359deg);
+  }
+}
+
+.steam {
+  position: relative;
+  -webkit-animation: steam 7s linear infinite 6s;
+  -moz-animation: steam 7s linear infinite 6s;
+  -ms-animation: steam 7s linear infinite 6s;
+  -o-animation: steam 7s linear infinite 6s;
+  animation: steam 7s linear infinite 6s;
+}
+
+.steam:before,
+.steam:after {
+  content: " ";
+  position: absolute;
+  top: 35vh;
+  left: -15px;
+  border-right: 0px solid transparent;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-bottom: 2px solid transparent;
+  width: 40px;
+  height: 70px;
+  z-index: 4;
+  border-radius: 80% 0 10% 10%;
+
+  -webkit-transform: rotate(168deg) skewY(10deg);
+  -moz-transform: rotate(168deg) skewY(10deg);
+  -ms-transform: rotate(168deg) skewY(10deg);
+  -o-transform: rotate(168deg) skewY(10deg);
+  transform: rotate(168deg) skewY(10deg);
+
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
+}
+
+.steam:after {
+  top: 31vh;
+  left: -35px;
+  z-index: 4;
+  border-radius: 80% 0 10% 10%;
+  -webkit-transform: rotate(315deg) skewY(10deg);
+  -moz-transform: rotate(315deg) skewY(10deg);
+  -ms-transform: rotate(315deg) skewY(10deg);
+  -o-transform: rotate(315deg) skewY(10deg);
+  transform: rotate(315deg) skewY(10deg);
+
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
+}
+
+@-webkit-keyframes steam {
+  0% {
+    top: 100px;
+    opacity: 0.075;
+    visibility: visible;
+  }
+  20% {
+    top: 80px;
+    opacity: 0.2;
+  }
+  40% {
+    top: 60px;
+    opacity: 0.4;
+  }
+  60% {
+    top: 40px;
+    opacity: 0.2;
+  }
+  80% {
+    top: 20px;
+    opacity: 0.075;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@-moz-keyframes steam {
+  0% {
+    top: 100px;
+    opacity: 0.075;
+    visibility: visible;
+  }
+  20% {
+    top: 80px;
+    opacity: 0.2;
+  }
+  40% {
+    top: 60px;
+    opacity: 0.4;
+  }
+  60% {
+    top: 40px;
+    opacity: 0.2;
+  }
+  80% {
+    top: 20px;
+    opacity: 0.075;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@-ms-keyframes steam {
+  0% {
+    top: 100px;
+    opacity: 0.075;
+    visibility: visible;
+  }
+  20% {
+    top: 80px;
+    opacity: 0.2;
+  }
+  40% {
+    top: 60px;
+    opacity: 0.4;
+  }
+  60% {
+    top: 40px;
+    opacity: 0.2;
+  }
+  80% {
+    top: 20px;
+    opacity: 0.075;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@-o-keyframes steam {
+  0% {
+    top: 100px;
+    opacity: 0.075;
+    visibility: visible;
+  }
+  20% {
+    top: 80px;
+    opacity: 0.2;
+  }
+  40% {
+    top: 60px;
+    opacity: 0.4;
+  }
+  60% {
+    top: 40px;
+    opacity: 0.2;
+  }
+  80% {
+    top: 20px;
+    opacity: 0.075;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes steam {
+  0% {
+    top: 100px;
+    opacity: 0.075;
+    visibility: visible;
+  }
+  10% {
+    top: 90px;
+    opacity: 0.8;
+  }
+  20% {
+    top: 80px;
+    opacity: 0.9;
+  }
+  40% {
+    top: 60px;
+    opacity: 1;
+  }
+  60% {
+    top: 40px;
+    opacity: 0.9;
+  }
+  80% {
+    top: 20px;
+    opacity: 0.075;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
   }
 }

@@ -25,56 +25,54 @@ class App extends Component {
   };
 
   componentDidMount() {
-    /*
-    CALCULATE AND SET POSITION OF FAN
-    original image:
-      height: 1167px
-      width: 3021px
-      fan pos from centre: 1010px
-      fan pos from top: 248px
+    //position fan and steam
+    this.positionFanAndSteam();
 
-    Do: 
-    //1010/1167 * innerHeight = num pixels fan should be from center
-    (innerWidth/2) - (1010/1167 * innerHeight) = fan's left position 
-
-    248/1167 * innerHeight = num pixels fan should be from top
-    */
-
-    //calculate then set the fan's size via width prop
-    console.log("scaler", window.innerHeight);
-    const width = (window.innerHeight / 550) * 200;
-    document.getElementsByClassName("fan")[0].style.width = "" + width + "px";
-
-    //calculate then set fan's left position
-    const offsetLeft = 80;
-    const left =
-      window.innerWidth / 2 - ((1010 - offsetLeft) / 1167) * window.innerHeight;
-    document.getElementsByClassName("fan")[0].style.left = "" + left + "px";
-
-    //calculate then set fan's top position
-    const top = (255 / 1167) * window.innerHeight;
-    document.getElementsByClassName("fan")[0].style.top = "" + top + "px";
-
-    if (window.innerWidth / window.innerHeight > 2.589) {
-      console.log(
-        "full image displayed",
-        window.innerWidth / window.innerHeight
-      );
-    } else {
-      console.log("image cropped", window.innerWidth / window.innerHeight);
-    }
+    //recalculate positions when window is resized
+    window.addEventListener("resize", this.positionFanAndSteam);
   }
 
   render() {
     return (
       <React.Fragment>
         <Header />
-        <div className="fanWrapper">
-          <img src={Fan} alt="fan" className="fan" />
-        </div>
+        <img src={Fan} alt="fan" className="fan" />
+        <span className="steam"></span>
         {this.checkStage()}
       </React.Fragment>
     );
+  }
+
+  positionFanAndSteam() {
+    //calculate then set the fan's size via width prop
+    /* NOTES ON CALCULATIONS
+    1167 = height of image
+    1010 = fans position left of centre on main image
+    1010/1167 * innerHeight = num pixels fan should be left of center
+    (innerWidth/2) - (1010/1167 * innerHeight) = fan's left position 
+
+    //500/1167 * innerHeight = num pixels steam should be right of center
+    (innerWidth/2) + (500/1167 * innerHeight) = fan's left position
+
+    248/1167 * innerHeight = num pixels fan should be from top
+    */
+    const width = (window.innerHeight / 550) * 200;
+    document.getElementsByClassName("fan")[0].style.width = "" + width + "px";
+
+    //calculate then set fan's left position
+    const offsetLeft = 80;
+    const fanLeft =
+      window.innerWidth / 2 - ((1010 - offsetLeft) / 1167) * window.innerHeight;
+    document.getElementsByClassName("fan")[0].style.left = "" + fanLeft + "px";
+
+    //calculate then set fan's top position
+    const fanTop = (255 / 1167) * window.innerHeight;
+    document.getElementsByClassName("fan")[0].style.top = "" + fanTop + "px";
+
+    //calculate then set steam position
+    const steamLeft = window.innerWidth / 2 + (770 / 1167) * window.innerHeight;
+    document.getElementsByClassName("steam")[0].style.left =
+      "" + steamLeft + "px";
   }
 
   checkStage() {
